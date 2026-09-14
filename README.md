@@ -1,69 +1,26 @@
-# Appraised — device value estimator
+# Appraised 💸
 
-A three-step tool that estimates what an iPhone or Android phone is worth
-based on model, storage, and condition. Built as a static site: plain HTML,
-CSS, and JavaScript, no build step or framework required.
+A frontend web app built to showcase data-driven pricing logic, multi-step form flow, and clean component-free vanilla JS architecture.
 
-## Folder structure
+### 🚀 [View Live Demo](https://device-value.netlify.app/)
 
-```
-device-value-checker/
-├── index.html          The whole page: header, hero, how-it-works,
-│                        the estimator markup, and the "why" section.
-├── css/
-│   └── styles.css       All styling — colors, type, layout, and every
-│                         component (buttons, pills, the ticket cards).
-├── js/
-│   ├── data.js           The device catalog + all pricing reference
-│   │                      numbers (tiers, depreciation rate, storage
-│   │                      adjustments, condition factors).
-│   ├── pricing.js         The calculation logic. Pure functions only —
-│   │                       no DOM access — so it's easy to reason about
-│   │                       or reuse later (e.g. behind a real API).
-│   └── app.js              The only file that touches the page: reads
-│                            the form, calls pricing.js, and renders
-│                            the result.
-└── README.md
-```
+---
 
-Script load order matters and is already set in `index.html`:
-`data.js` → `pricing.js` → `app.js`.
+### 📱 About This Project
+Appraised turns a device's real-world condition into an instant, itemized trade-in estimate. The core interface handles a full three-step appraisal flow, including:
 
-## Running it locally in VS Code
+* **Model-Aware Pricing:** Every current and recent iPhone, Galaxy, and Pixel model — including foldables — priced from its own base value and age.
+* **Condition-Based Adjustments:** Screen, back & sides, battery health, and carrier lock status each apply their own weighted multiplier to the final offer.
+* **Fault & Damage Handling:** Flags for camera, speaker/mic, biometric, and button issues apply flat deductions; water damage applies a steep cut.
+* **Itemized Offer Breakdown:** No black-box number — the result screen shows exactly how each answer moved the price, line by line.
 
-No build tools needed. Either:
+---
 
-- Install the **Live Server** extension, then right-click `index.html` →
-  "Open with Live Server", or
-- Just double-click `index.html` to open it directly in a browser.
+### 🛠️ Tech Stack
+* **Frontend:** Vanilla JavaScript (ES6+), HTML5
+* **Styling:** CSS3 (custom properties, no framework)
+* **Architecture:** Pure calculation logic (`pricing.js`) kept fully separate from DOM code (`app.js`)
 
-## How the pricing works
+---
 
-Instead of hand-typing a price for every model × storage × condition
-combination, each device in `data.js` only stores a `tier`
-(e.g. `flagship_pro`, `midrange`, `foldable`) and a launch `year`.
-`pricing.js` computes a value at runtime:
-
-1. Start from the tier's reference value (`TIER_BASE_VALUE`).
-2. Depreciate it based on age (`ANNUAL_DEPRECIATION`).
-3. Add the storage adjustment for the selected size.
-4. Multiply by condition factors for screen, back/sides, battery
-   health, and carrier lock.
-5. Subtract flat deductions for any reported faults, and apply a
-   larger cut if water damage is checked.
-
-## Extending it
-
-- **Add a phone**: add one object to the `DEVICES` array in `data.js`
-  with a `brand`, `name`, `year`, and an existing `tier` key. No pricing
-  code to touch.
-- **Add a new tier** (e.g. a tablet line): add entries to
-  `TIER_BASE_VALUE` and `STORAGE_OPTIONS` in `data.js`.
-- **Change how much condition affects price**: adjust the numbers in
-  `CONDITION_FACTORS` or `FUNCTIONAL_DEDUCTIONS`.
-
-## Note
-
-The prices this tool shows are illustrative estimates for a portfolio
-demo — they are not connected to a live marketplace or real trade-in
-pricing feed.
+*Values shown are illustrative estimates for demonstration purposes and are not connected to a live marketplace or pricing feed.*
