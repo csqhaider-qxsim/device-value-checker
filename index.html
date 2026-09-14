@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appraised — Find out what your phone is worth</title>
+  <meta name="description" content="Get an instant, itemized estimate of your iPhone or Android's trade-in value based on its real condition." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top">Appraised</a>
+    <nav class="site-nav">
+      <a href="#how">How it works</a>
+      <a href="#estimator" class="nav-cta">Get an offer</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <h1>Know what your phone is really worth <span class="hero-lede-break">before you sell it.</span></h1>
+        <p class="hero-sub">
+          Pick your model, answer a few honest questions about its condition,
+          and get an itemized estimate — not just a single number pulled
+          from nowhere.
+        </p>
+        <a href="#estimator" class="button button-primary">Start your appraisal</a>
+        <p class="hero-note">Covers current and recent iPhone, Galaxy, and Pixel models.</p>
+      </div>
+
+      <div class="hero-ticket" aria-hidden="true">
+        <div class="ticket">
+          <div class="ticket-row ticket-row-head">
+            <span>Sample appraisal</span>
+            <span>#00194</span>
+          </div>
+          <div class="ticket-device">iPhone 15 Pro · 256GB</div>
+          <ul class="ticket-lines">
+            <li><span>Screen</span><span>Good</span></li>
+            <li><span>Back &amp; sides</span><span>Excellent</span></li>
+            <li><span>Battery health</span><span>86%</span></li>
+            <li><span>Carrier lock</span><span>Unlocked</span></li>
+          </ul>
+          <div class="ticket-total">
+            <span>Estimated offer</span>
+            <span class="ticket-total-value">£612</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how">
+      <ol class="how-steps">
+        <li>
+          <span class="how-index">1</span>
+          <h3>Choose your device</h3>
+          <p>Tell us the brand, model, and storage size — most models from the last five years are covered.</p>
+        </li>
+        <li>
+          <span class="how-index">2</span>
+          <h3>Describe its condition</h3>
+          <p>Rate the screen, the back and sides, battery health, and flag anything that isn't working.</p>
+        </li>
+        <li>
+          <span class="how-index">3</span>
+          <h3>See your offer</h3>
+          <p>Get an itemized breakdown showing exactly how each answer changed the final number.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ESTIMATOR -->
+    <section class="estimator" id="estimator">
+      <div class="ticket-frame">
+
+        <ol class="progress" id="progress">
+          <li class="progress-stub is-active" data-step="1"><span>01</span>Device</li>
+          <li class="progress-stub" data-step="2"><span>02</span>Condition</li>
+          <li class="progress-stub" data-step="3"><span>03</span>Offer</li>
+        </ol>
+
+        <!-- STEP 1: DEVICE -->
+        <div class="step" id="step-1" data-step="1">
+          <h2>What device do you have?</h2>
+
+          <div class="field-group">
+            <span class="field-label">Brand</span>
+            <div class="pill-row" id="brandFilter" role="radiogroup" aria-label="Brand">
+              <button type="button" class="pill is-active" data-brand="all">All</button>
+              <button type="button" class="pill" data-brand="Apple">Apple</button>
+              <button type="button" class="pill" data-brand="Samsung">Samsung</button>
+              <button type="button" class="pill" data-brand="Google">Google</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="modelSelect">Model</label>
+            <select id="modelSelect"></select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="storageSelect">Storage</label>
+            <select id="storageSelect"></select>
+          </div>
+
+          <div class="step-actions">
+            <span></span>
+            <button type="button" class="button button-primary" id="toStep2">Next: Condition</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: CONDITION -->
+        <div class="step is-hidden" id="step-2" data-step="2">
+          <h2>What condition is it in?</h2>
+
+          <fieldset class="field-group">
+            <legend class="field-label">Screen</legend>
+            <div class="pill-row" data-radio-group="screen">
+              <label class="pill"><input type="radio" name="screen" value="excellent" checked /> Excellent</label>
+              <label class="pill"><input type="radio" name="screen" value="good" /> Good</label>
+              <label class="pill"><input type="radio" name="screen" value="fair" /> Fair</label>
+              <label class="pill"><input type="radio" name="screen" value="poor" /> Cracked</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend class="field-label">Back &amp; sides</legend>
+            <div class="pill-row" data-radio-group="body">
+              <label class="pill"><input type="radio" name="body" value="excellent" checked /> Excellent</label>
+              <label class="pill"><input type="radio" name="body" value="good" /> Good</label>
+              <label class="pill"><input type="radio" name="body" value="fair" /> Fair</label>
+              <label class="pill"><input type="radio" name="body" value="poor" /> Heavily worn</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend class="field-label">Battery health</legend>
+            <div class="pill-row" data-radio-group="battery">
+              <label class="pill"><input type="radio" name="battery" value="high" checked /> 90% or above</label>
+              <label class="pill"><input type="radio" name="battery" value="mid" /> 80–89%</label>
+              <label class="pill"><input type="radio" name="battery" value="low" /> Below 80%</label>
+              <label class="pill"><input type="radio" name="battery" value="unknown" /> Not sure</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend class="field-label">Carrier status</legend>
+            <div class="pill-row" data-radio-group="lock">
+              <label class="pill"><input type="radio" name="lock" value="unlocked" checked /> Unlocked</label>
+              <label class="pill"><input type="radio" name="lock" value="locked" /> Locked to a carrier</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend class="field-label">Anything not working? (select any)</legend>
+            <div class="pill-row">
+              <label class="pill"><input type="checkbox" name="fault" value="cameraIssue" /> Camera</label>
+              <label class="pill"><input type="checkbox" name="fault" value="speakerMicIssue" /> Speaker or mic</label>
+              <label class="pill"><input type="checkbox" name="fault" value="biometricIssue" /> Face ID / fingerprint</label>
+              <label class="pill"><input type="checkbox" name="fault" value="buttonIssue" /> A button</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend class="field-label">Water damage</legend>
+            <div class="pill-row">
+              <label class="pill"><input type="checkbox" id="waterDamage" /> Device has visible water/liquid damage</label>
+            </div>
+          </fieldset>
+
+          <div class="step-actions">
+            <button type="button" class="button button-ghost" id="toStep1">Back</button>
+            <button type="button" class="button button-primary" id="toStep3">See my offer</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: RESULT -->
+        <div class="step is-hidden" id="step-3" data-step="3">
+          <h2>Your estimated offer</h2>
+
+          <div class="result-value" id="resultValue">£0</div>
+          <p class="result-device" id="resultDevice"></p>
+
+          <table class="breakdown" id="breakdownTable">
+            <tbody></tbody>
+          </table>
+
+          <p class="result-disclaimer">
+            This is an illustrative estimate for demonstration purposes,
+            not a purchase offer.
+          </p>
+
+          <div class="step-actions">
+            <button type="button" class="button button-ghost" id="toStep2From3">Back</button>
+            <button type="button" class="button button-primary" id="startOver">Start a new appraisal</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="why" id="why">
+      <div class="why-card">
+        <h3>Transparent by default</h3>
+        <p>Every offer shows the base value and every adjustment that shaped it — nothing is a black box.</p>
+      </div>
+      <div class="why-card">
+        <h3>iPhone and Android</h3>
+        <p>Current and recent iPhone, Galaxy, and Pixel models, including foldables.</p>
+      </div>
+      <div class="why-card">
+        <h3>No account needed</h3>
+        <p>Get an estimate in under a minute — nothing to sign up for.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Appraised is a portfolio demo project. Values are illustrative and not tied to a live marketplace.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
